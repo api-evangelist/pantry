@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "pantry": "https://getpantry.cloud/#",
+    "name": "schema:name",
+    "description": "schema:description",
+    "contactEmail": "schema:email",
+    "Pantry": "pantry:Pantry",
+    "Basket": "pantry:Basket",
+    "baskets": {
+      "@id": "pantry:basket",
+      "@container": "@set"
+    },
+    "ttl": "pantry:ttl",
+    "percentFull": "pantry:percentFull",
+    "notifications": "pantry:notifications"
+  }
+}

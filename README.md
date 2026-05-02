@@ -5,40 +5,44 @@ Pantry is a free data storage service for developers that focuses on your develo
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
-## Tags:
+## Tags
 
- - Data Storage, JSON, Developer Tools, API
+- Data Storage, JSON, Developer Tools
 
 ## Timestamps
 
-- **Created:** 2025-02-06 
-- **Modified:** 2026-03-16 
+- **Created:** 2025-02-06
+- **Modified:** 2026-04-28
 
 ## APIs
 
 ### Pantry API
-Free cloud-based JSON data storage API for developers. Focus on building your project and leave data storage to Pantry.
+Free cloud-based JSON data storage API for developers. Create a pantry, then store, retrieve, update, and delete JSON baskets within it.
 
 **Human URL:** [https://getpantry.cloud/](https://getpantry.cloud/)
 
+#### Tags
 
-#### Tags:
-
- - Data Storage, JSON
+- Data Storage, JSON
 
 #### Properties
 
 - [Documentation](https://getpantry.cloud/)
 - [Getting Started](https://getpantry.cloud/)
+- [OpenAPI](openapi/pantry-openapi.yml)
+- [JSONSchema - pantry](json-schema/pantry.json)
+- [JSONSchema - basket](json-schema/basket.json)
+- [JSONLD](json-ld/pantry-context.jsonld)
 
 ## Common Properties
 
 - [Website](https://getpantry.cloud/)
 - [Documentation](https://getpantry.cloud/)
+- [SourceCode](https://github.com/imRohan/Pantry)
 
 ## Maintainers
 

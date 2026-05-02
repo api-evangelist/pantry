@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pantry/refs/heads/main/json-schema/pantry.json",
+  "title": "Pantry",
+  "description": "A pantry account container with metadata and a list of baskets.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name for the pantry."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the pantry."
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notifications": {
+      "type": "boolean"
+    },
+    "percentFull": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "baskets": {
+      "type": "array",
+      "items": { "$ref": "basket.json" }
+    }
+  },
+  "required": ["name"]
+}

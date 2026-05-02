@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pantry/refs/heads/main/json-schema/basket.json",
+  "title": "Basket",
+  "description": "A basket is a JSON container stored within a pantry.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the basket."
+    },
+    "ttl": {
+      "type": "integer",
+      "description": "Time-to-live in seconds before basket expiry."
+    },
+    "contents": {
+      "type": "object",
+      "description": "Free-form JSON contents of the basket.",
+      "additionalProperties": true
+    }
+  },
+  "required": ["name"]
+}

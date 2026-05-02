@@ -13,7 +13,7 @@ tags:
   - Developer Tools
   - JSON
 created: '2025-02-06'
-modified: '2026-03-16'
+modified: '2026-04-28'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/pantry/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -21,8 +21,8 @@ apis:
   - aid: pantry:pantry
     name: Pantry API
     description: >-
-      Free cloud-based JSON data storage API for developers. Focus on
-      building your project and leave data storage to Pantry.
+      Free cloud-based JSON data storage API for developers. Create a pantry,
+      then store, retrieve, update, and delete JSON baskets within it.
     humanURL: https://getpantry.cloud/
     tags:
       - Data Storage
@@ -32,11 +32,21 @@ apis:
         url: https://getpantry.cloud/
       - type: Getting Started
         url: https://getpantry.cloud/
+      - type: OpenAPI
+        url: openapi/pantry-openapi.yml
+      - type: JSONSchema
+        url: json-schema/pantry.json
+      - type: JSONSchema
+        url: json-schema/basket.json
+      - type: JSONLD
+        url: json-ld/pantry-context.jsonld
 common:
   - type: Website
     url: https://getpantry.cloud/
   - type: Documentation
     url: https://getpantry.cloud/
+  - type: SourceCode
+    url: https://github.com/imRohan/Pantry
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
