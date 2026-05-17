@@ -30,7 +30,7 @@ apis:
     properties:
       - type: Documentation
         url: https://getpantry.cloud/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://getpantry.cloud/
       - type: OpenAPI
         url: openapi/pantry-openapi.yml
