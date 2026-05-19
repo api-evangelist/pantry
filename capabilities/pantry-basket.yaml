@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pantry API — Basket
+  description: 'Pantry API — Basket. 5 operations. Lead operation: Create a basket. Self-contained Naftiko capability covering
+    one Pantry business surface.'
+  tags:
+  - Pantry
+  - Basket
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PANTRY_API_KEY: PANTRY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pantry-basket
+    baseUri: https://getpantry.cloud/apiv1
+    description: Pantry API — Basket business capability. Self-contained, no shared references.
+    resources:
+    - name: pantry-pantryID-basket-basketName
+      path: /pantry/{pantryID}/basket/{basketName}
+      operations:
+      - name: createbasket
+        method: POST
+        description: Create a basket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: updatebasket
+        method: PUT
+        description: Update basket contents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getbasket
+        method: GET
+        description: Get basket contents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletebasket
+        method: DELETE
+        description: Delete a basket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pantry-pantryID-basket-basketName-public
+      path: /pantry/{pantryID}/basket/{basketName}/public
+      operations:
+      - name: createpublicbasket
+        method: GET
+        description: Create a public basket link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pantry-basket-rest
+    port: 8080
+    description: REST adapter for Pantry API — Basket. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/pantry/{pantryid}/basket/{basketname}
+      name: pantry-pantryid-basket-basketname
+      description: REST surface for pantry-pantryID-basket-basketName.
+      operations:
+      - method: POST
+        name: createbasket
+        description: Create a basket
+        call: pantry-basket.createbasket
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatebasket
+        description: Update basket contents
+        call: pantry-basket.updatebasket
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getbasket
+        description: Get basket contents
+        call: pantry-basket.getbasket
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletebasket
+        description: Delete a basket
+        call: pantry-basket.deletebasket
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pantry/{pantryid}/basket/{basketname}/public
+      name: pantry-pantryid-basket-basketname-public
+      description: REST surface for pantry-pantryID-basket-basketName-public.
+      operations:
+      - method: GET
+        name: createpublicbasket
+        description: Create a public basket link
+        call: pantry-basket.createpublicbasket
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pantry-basket-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pantry API — Basket. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-basket
+      description: Create a basket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pantry-basket.createbasket
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-basket-contents
+      description: Update basket contents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pantry-basket.updatebasket
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-basket-contents
+      description: Get basket contents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pantry-basket.getbasket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-basket
+      description: Delete a basket
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: pantry-basket.deletebasket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-public-basket-link
+      description: Create a public basket link
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pantry-basket.createpublicbasket
+      outputParameters:
+      - type: object
+        mapping: $.
