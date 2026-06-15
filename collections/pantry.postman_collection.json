@@ -1,0 +1,1368 @@
+{
+  "item": [
+    {
+      "id": "07969997-b3fa-4aa6-89e7-59d3f38e0acd",
+      "name": "Pantry",
+      "description": {
+        "content": "Pantry account (account-level operations)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2df73edf-e593-44b1-ae9c-1c7537f239f5",
+          "name": "Create a new pantry",
+          "request": {
+            "name": "Create a new pantry",
+            "description": {
+              "content": "Create a new pantry account, returning a pantry ID used for all subsequent calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pantry",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"contactEmail\": \"<email>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be8b2ad6-c68e-4cea-99ea-5b596808d33f",
+              "name": "Pantry created; returns the new pantry ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"contactEmail\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cde01dac-05c6-4a6a-b8a7-bc08b1b4f384",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"contactEmail\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bf1fce3-2f25-46b8-986b-6ea18413fb95",
+          "name": "Get pantry details",
+          "request": {
+            "name": "Get pantry details",
+            "description": {},
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f4dbdef-eaaa-4d04-ac53-5a8119e2caf5",
+              "name": "Pantry details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notifications\": false,\n  \"percentFull\": 6022,\n  \"baskets\": [\n    {\n      \"name\": \"string\",\n      \"ttl\": 7001\n    },\n    {\n      \"name\": \"string\",\n      \"ttl\": 6580\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d3acf9e-f8c6-44db-9a61-c5ba42c0b203",
+              "name": "Could not retrieve pantry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78f69866-dd80-43e9-95ff-7b9a0158fa47",
+          "name": "Update pantry details",
+          "request": {
+            "name": "Update pantry details",
+            "description": {},
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90905d54-9980-4d75-bfce-a25d536a57e9",
+              "name": "Updated pantry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"notifications\": false,\n  \"percentFull\": 9965,\n  \"baskets\": [\n    {\n      \"name\": \"string\",\n      \"ttl\": 8354\n    },\n    {\n      \"name\": \"string\",\n      \"ttl\": 8781\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43c53777-e279-4aeb-a030-017a8f11c1af",
+              "name": "Could not update pantry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1585f912-e568-4af0-a1f9-ad364f6d11fe",
+          "name": "Delete a pantry",
+          "request": {
+            "name": "Delete a pantry",
+            "description": {},
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bd00f05-b02e-4aeb-a23f-1bfb41af26e4",
+              "name": "Pantry deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "406ab529-9f67-4f0a-ae27-0e2991c59159",
+              "name": "Could not delete pantry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a6ed1f01-fd34-4ac2-98ed-fb90af8c0984",
+      "name": "Basket",
+      "description": {
+        "content": "Baskets are containers of JSON data within a pantry",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce236dc6-eed6-4c07-8e02-cc74ad3a467c",
+          "name": "Create a basket",
+          "request": {
+            "name": "Create a basket",
+            "description": {
+              "content": "Create a new basket within the pantry containing a JSON payload.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID",
+                "basket",
+                ":basketName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "basketName",
+                  "description": "(Required) The name of the basket within the pantry."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e7dbbf2-c6c4-4bca-96b7-e43eebcf8ab6",
+              "name": "Basket created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "49e00779-b426-4c20-b2cb-8f4f37c31d6a",
+              "name": "Could not create basket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac4b89ca-966e-4118-b936-f11238b99341",
+          "name": "Update basket contents",
+          "request": {
+            "name": "Update basket contents",
+            "description": {
+              "content": "Merges the supplied JSON object into the existing basket contents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID",
+                "basket",
+                ":basketName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "basketName",
+                  "description": "(Required) The name of the basket within the pantry."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b3972a6b-72c8-4ce3-92bb-afdc04c86da2",
+              "name": "Updated basket contents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed5c66db-76d7-487e-8a76-2764a2cd280f",
+              "name": "Could not update basket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b303d8bd-e3ca-4315-b528-01d5778e2770",
+          "name": "Get basket contents",
+          "request": {
+            "name": "Get basket contents",
+            "description": {},
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID",
+                "basket",
+                ":basketName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "basketName",
+                  "description": "(Required) The name of the basket within the pantry."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b48d9d11-aa64-41e8-9561-2bb1dd148b3e",
+              "name": "Basket contents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96e93dbb-d9fb-4a2a-88b3-8b0a01d6f987",
+              "name": "Could not get basket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58874ed2-52ab-4215-881d-ca97e6cb8309",
+          "name": "Delete a basket",
+          "request": {
+            "name": "Delete a basket",
+            "description": {},
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID",
+                "basket",
+                ":basketName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "basketName",
+                  "description": "(Required) The name of the basket within the pantry."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2903cfab-b5cf-4003-b867-9816fc4641a5",
+              "name": "Basket deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a93fd549-7379-4945-a2fb-d19569fcb950",
+              "name": "Could not delete basket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1aa8ab78-cbfa-4574-b4ee-5d1d585c2287",
+          "name": "Create a public basket link",
+          "request": {
+            "name": "Create a public basket link",
+            "description": {
+              "content": "Generate a public, shareable identifier for an existing basket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pantry",
+                ":pantryID",
+                "basket",
+                ":basketName",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pantryID",
+                  "description": "(Required) The unique pantry identifier returned from create."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "basketName",
+                  "description": "(Required) The name of the basket within the pantry."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66290b3a-a742-4623-ab7c-67af9e6deac5",
+              "name": "Public basket UUID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0b8a4f7-4101-466b-b358-f88c338b17f1",
+              "name": "Could not create public basket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pantry",
+                    ":pantryID",
+                    "basket",
+                    ":basketName",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pantryID",
+                      "description": "(Required) The unique pantry identifier returned from create."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basketName",
+                      "description": "(Required) The name of the basket within the pantry."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://getpantry.cloud/apiv1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "38ef2f3a-b6e2-4222-a282-b9aaa3507241",
+    "name": "Pantry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pantry is a free service that provides perishable data storage for small projects. Use the RESTful API to post JSON objects and Pantry will store them. Data is automatically deleted after a period of inactivity.\n\nContact Support:\n Name: Pantry",
+      "type": "text/plain"
+    }
+  }
+}
