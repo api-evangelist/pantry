@@ -39,6 +39,8 @@ apis:
       - type: JSONLD
         url: json-ld/pantry-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/pantry-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/pantry-retail-inc
   - type: Website
