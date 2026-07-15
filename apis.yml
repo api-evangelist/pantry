@@ -39,6 +39,8 @@ apis:
       - type: JSONLD
         url: json-ld/pantry-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/pantry-agentic-access.yml
   - type: DomainSecurity
     url: security/pantry-domain-security.yml
   - type: LinkedIn
