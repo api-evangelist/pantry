@@ -4,9 +4,21 @@ description: >-
   Pantry is a free data storage service for developers that focuses on your development time, letting you build awesome
   things fast. It provides a simple cloud-based JSON data storage API.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pantry.png
 tags:
   - Data Storage
   - Developer Tools
@@ -16,28 +28,44 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/pantry/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: pantry:pantry
-    name: Pantry API
-    description: >-
-      Free cloud-based JSON data storage API for developers. Create a pantry, then store, retrieve, update, and delete
-      JSON baskets within it.
-    humanURL: https://getpantry.cloud/
-    tags:
-      - Data Storage
-      - JSON
-    properties:
-      - type: Documentation
-        url: https://getpantry.cloud/
-      - type: GettingStarted
-        url: https://getpantry.cloud/
-      - type: OpenAPI
-        url: openapi/pantry-openapi.yml
-      - type: JSONSchema
-        url: json-schema/pantry.json
-      - type: JSONSchema
-        url: json-schema/basket.json
-      - type: JSONLD
-        url: json-ld/pantry-context.jsonld
+- aid: pantry:pantry-basket-api
+  name: Pantry Basket API
+  description: Baskets are containers of JSON data within a pantry
+  humanURL: https://getpantry.cloud/
+  tags:
+  - Basket
+  properties:
+  - type: OpenAPI
+    url: openapi/pantry-basket-api-openapi.yml
+  - type: Documentation
+    url: https://getpantry.cloud/
+  - type: GettingStarted
+    url: https://getpantry.cloud/
+  - type: JSONSchema
+    url: json-schema/pantry.json
+  - type: JSONSchema
+    url: json-schema/basket.json
+  - type: JSONLD
+    url: json-ld/pantry-context.jsonld
+- aid: pantry:pantry-pantry-api
+  name: Pantry Pantry API
+  description: Pantry account (account-level operations)
+  humanURL: https://getpantry.cloud/
+  tags:
+  - Pantry
+  properties:
+  - type: OpenAPI
+    url: openapi/pantry-pantry-api-openapi.yml
+  - type: Documentation
+    url: https://getpantry.cloud/
+  - type: GettingStarted
+    url: https://getpantry.cloud/
+  - type: JSONSchema
+    url: json-schema/pantry.json
+  - type: JSONSchema
+    url: json-schema/basket.json
+  - type: JSONLD
+    url: json-ld/pantry-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/pantry-agentic-access.yml
