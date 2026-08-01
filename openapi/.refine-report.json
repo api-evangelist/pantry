@@ -1,0 +1,16 @@
+{
+  "provider": "pantry",
+  "sources": [
+    "pantry-basket-api-openapi.yml",
+    "pantry-pantry-api-openapi.yml"
+  ],
+  "outputs": [
+    "pantry-basket-api-openapi.yml",
+    "pantry-pantry-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

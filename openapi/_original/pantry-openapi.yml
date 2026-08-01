@@ -1,0 +1,266 @@
+openapi: 3.0.3
+info:
+  title: Pantry API
+  description: >-
+    Pantry is a free service that provides perishable data storage for small
+    projects. Use the RESTful API to post JSON objects and Pantry will store
+    them. Data is automatically deleted after a period of inactivity.
+  version: 1.0.0
+  contact:
+    name: Pantry
+    url: https://getpantry.cloud/
+  license:
+    name: MIT
+servers:
+  - url: https://getpantry.cloud/apiv1
+    description: Pantry production API
+tags:
+  - name: Pantry
+    description: Pantry account (account-level operations)
+  - name: Basket
+    description: Baskets are containers of JSON data within a pantry
+paths:
+  /pantry/create:
+    post:
+      tags:
+        - Pantry
+      summary: Create a new pantry
+      description: Create a new pantry account, returning a pantry ID used for all subsequent calls.
+      operationId: createPantry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePantryRequest'
+      responses:
+        '200':
+          description: Pantry created; returns the new pantry ID.
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Invalid request.
+  /pantry/{pantryID}:
+    get:
+      tags:
+        - Pantry
+      summary: Get pantry details
+      operationId: getPantry
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+      responses:
+        '200':
+          description: Pantry details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pantry'
+        '400':
+          description: Could not retrieve pantry.
+    put:
+      tags:
+        - Pantry
+      summary: Update pantry details
+      operationId: updatePantry
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePantryRequest'
+      responses:
+        '200':
+          description: Updated pantry.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pantry'
+        '400':
+          description: Could not update pantry.
+    delete:
+      tags:
+        - Pantry
+      summary: Delete a pantry
+      operationId: deletePantry
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+      responses:
+        '204':
+          description: Pantry deleted.
+        '400':
+          description: Could not delete pantry.
+  /pantry/{pantryID}/basket/{basketName}:
+    post:
+      tags:
+        - Basket
+      summary: Create a basket
+      description: Create a new basket within the pantry containing a JSON payload.
+      operationId: createBasket
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+        - $ref: '#/components/parameters/BasketName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Basket created.
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Could not create basket.
+    put:
+      tags:
+        - Basket
+      summary: Update basket contents
+      description: Merges the supplied JSON object into the existing basket contents.
+      operationId: updateBasket
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+        - $ref: '#/components/parameters/BasketName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Updated basket contents.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Could not update basket.
+    get:
+      tags:
+        - Basket
+      summary: Get basket contents
+      operationId: getBasket
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+        - $ref: '#/components/parameters/BasketName'
+      responses:
+        '200':
+          description: Basket contents.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Could not get basket.
+    delete:
+      tags:
+        - Basket
+      summary: Delete a basket
+      operationId: deleteBasket
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+        - $ref: '#/components/parameters/BasketName'
+      responses:
+        '200':
+          description: Basket deleted.
+        '400':
+          description: Could not delete basket.
+  /pantry/{pantryID}/basket/{basketName}/public:
+    get:
+      tags:
+        - Basket
+      summary: Create a public basket link
+      description: Generate a public, shareable identifier for an existing basket.
+      operationId: createPublicBasket
+      parameters:
+        - $ref: '#/components/parameters/PantryID'
+        - $ref: '#/components/parameters/BasketName'
+      responses:
+        '200':
+          description: Public basket UUID.
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Could not create public basket.
+components:
+  parameters:
+    PantryID:
+      name: pantryID
+      in: path
+      required: true
+      description: The unique pantry identifier returned from create.
+      schema:
+        type: string
+        format: uuid
+    BasketName:
+      name: basketName
+      in: path
+      required: true
+      description: The name of the basket within the pantry.
+      schema:
+        type: string
+  schemas:
+    CreatePantryRequest:
+      type: object
+      required:
+        - name
+        - description
+        - contactEmail
+      properties:
+        name:
+          type: string
+          description: Display name for the pantry.
+        description:
+          type: string
+          description: Description of the pantry.
+        contactEmail:
+          type: string
+          format: email
+          description: Contact email associated with this pantry.
+    UpdatePantryRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Pantry:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+        notifications:
+          type: boolean
+        percentFull:
+          type: integer
+        baskets:
+          type: array
+          items:
+            $ref: '#/components/schemas/BasketSummary'
+    BasketSummary:
+      type: object
+      properties:
+        name:
+          type: string
+        ttl:
+          type: integer
+          description: Time-to-live in seconds before basket expiry.
