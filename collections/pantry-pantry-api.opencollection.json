@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Basket Pantry API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pantry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new pantry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://getpantry.cloud/apiv1/pantry/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new pantry account, returning a pantry ID used for all subsequent calls."
+        },
+        {
+          "info": {
+            "name": "Get pantry details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://getpantry.cloud/apiv1/pantry/:pantryID",
+            "params": [
+              {
+                "name": "pantryID",
+                "value": "",
+                "type": "path",
+                "description": "The unique pantry identifier returned from create."
+              }
+            ]
+          },
+          "docs": "Get pantry details"
+        },
+        {
+          "info": {
+            "name": "Update pantry details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://getpantry.cloud/apiv1/pantry/:pantryID",
+            "params": [
+              {
+                "name": "pantryID",
+                "value": "",
+                "type": "path",
+                "description": "The unique pantry identifier returned from create."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update pantry details"
+        },
+        {
+          "info": {
+            "name": "Delete a pantry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://getpantry.cloud/apiv1/pantry/:pantryID",
+            "params": [
+              {
+                "name": "pantryID",
+                "value": "",
+                "type": "path",
+                "description": "The unique pantry identifier returned from create."
+              }
+            ]
+          },
+          "docs": "Delete a pantry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
