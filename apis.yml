@@ -4,6 +4,18 @@ description: >-
   Pantry is a free data storage service for developers that focuses on your development time, letting you build awesome
   things fast. It provides a simple cloud-based JSON data storage API.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -67,6 +79,10 @@ apis:
   - type: JSONLD
     url: json-ld/pantry-context.jsonld
 common:
+  - type: IssueTracker
+    url: https://github.com/imRohan/Pantry/issues
+  - type: Releases
+    url: https://github.com/imRohan/Pantry/releases
   - type: AgenticAccess
     url: agentic-access/pantry-agentic-access.yml
   - type: DomainSecurity
