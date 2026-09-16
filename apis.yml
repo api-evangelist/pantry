@@ -1,8 +1,7 @@
 aid: pantry
 name: Pantry
-description: >-
-  Pantry is a free data storage service for developers that focuses on your development time, letting you build awesome
-  things fast. It provides a simple cloud-based JSON data storage API.
+description: Pantry is a free data storage service for developers that focuses on your development time,
+  letting you build awesome things fast. It provides a simple cloud-based JSON data storage API.
 type: Index
 deliveryModel:
   model: unknown
@@ -32,11 +31,11 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pantry.png
 tags:
-  - Data Storage
-  - Developer Tools
-  - JSON
+- Data Storage
+- Developer Tools
+- JSON
 created: '2025-02-06'
-modified: '2026-05-19'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/pantry/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -60,7 +59,7 @@ apis:
   - type: JSONLD
     url: json-ld/pantry-context.jsonld
 - aid: pantry:pantry-pantry-api
-  name: Pantry Pantry API
+  name: Pantry API
   description: Pantry account (account-level operations)
   humanURL: https://getpantry.cloud/
   tags:
@@ -79,22 +78,22 @@ apis:
   - type: JSONLD
     url: json-ld/pantry-context.jsonld
 common:
-  - type: IssueTracker
-    url: https://github.com/imRohan/Pantry/issues
-  - type: Releases
-    url: https://github.com/imRohan/Pantry/releases
-  - type: AgenticAccess
-    url: agentic-access/pantry-agentic-access.yml
-  - type: DomainSecurity
-    url: security/pantry-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/pantry-retail-inc
-  - type: Website
-    url: https://getpantry.cloud/
-  - type: Documentation
-    url: https://getpantry.cloud/
-  - type: SourceCode
-    url: https://github.com/imRohan/Pantry
+- type: IssueTracker
+  url: https://github.com/imRohan/Pantry/issues
+- type: Releases
+  url: https://github.com/imRohan/Pantry/releases
+- type: AgenticAccess
+  url: agentic-access/pantry-agentic-access.yml
+- type: DomainSecurity
+  url: security/pantry-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/pantry-retail-inc
+- type: Website
+  url: https://getpantry.cloud/
+- type: Documentation
+  url: https://getpantry.cloud/
+- type: SourceCode
+  url: https://github.com/imRohan/Pantry
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
