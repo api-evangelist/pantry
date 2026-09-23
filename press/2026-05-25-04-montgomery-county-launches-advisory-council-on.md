@@ -1,7 +1,9 @@
 ---
 title: Montgomery County Launches Advisory Council on ...
 url: https://www.montgomerycountypa.gov/CivicAlerts.asp?AID=4690
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Pantry" press release artificial intelligence'
 position: 4
 source: serpapi-google

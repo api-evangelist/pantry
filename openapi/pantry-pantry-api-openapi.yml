@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Basket Pantry API
+  title: Pantry API
   description: Pantry is a free service that provides perishable data storage for small projects. Use the RESTful API to post JSON objects and Pantry will store them. Data is automatically deleted after a period of inactivity.
   version: 1.0.0
   contact:
@@ -89,16 +89,22 @@ paths:
         '400':
           description: Could not delete pantry.
 components:
-  parameters:
-    PantryID:
-      name: pantryID
-      in: path
-      required: true
-      description: The unique pantry identifier returned from create.
-      schema:
-        type: string
-        format: uuid
   schemas:
+    BasketSummary:
+      type: object
+      properties:
+        name:
+          type: string
+        ttl:
+          type: integer
+          description: Time-to-live in seconds before basket expiry.
+    UpdatePantryRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
     CreatePantryRequest:
       type: object
       required:
@@ -116,13 +122,6 @@ components:
           type: string
           format: email
           description: Contact email associated with this pantry.
-    UpdatePantryRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
     Pantry:
       type: object
       properties:
@@ -142,11 +141,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BasketSummary'
-    BasketSummary:
-      type: object
-      properties:
-        name:
-          type: string
-        ttl:
-          type: integer
-          description: Time-to-live in seconds before basket expiry.
+  parameters:
+    PantryID:
+      name: pantryID
+      in: path
+      required: true
+      description: The unique pantry identifier returned from create.
+      schema:
+        type: string
+        format: uuid
