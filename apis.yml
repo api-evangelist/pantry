@@ -5,6 +5,10 @@ description: Pantry is a free data storage service for developers that focuses o
 type: Index
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: imrohan/pantry
+    spdx: NOASSERTION
+    stars: 157
   open_source: unknown
   commercial: false
   callable_host: true
@@ -13,7 +17,7 @@ deliveryModel:
   source:
   - openapi
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium

@@ -119,13 +119,6 @@ paths:
           description: Could not create public basket.
 components:
   parameters:
-    BasketName:
-      name: basketName
-      in: path
-      required: true
-      description: The name of the basket within the pantry.
-      schema:
-        type: string
     PantryID:
       name: pantryID
       in: path
@@ -134,3 +127,10 @@ components:
       schema:
         type: string
         format: uuid
+    BasketName:
+      name: basketName
+      in: path
+      required: true
+      description: The name of the basket within the pantry.
+      schema:
+        type: string
