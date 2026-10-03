@@ -89,15 +89,6 @@ paths:
         '400':
           description: Could not delete pantry.
 components:
-  parameters:
-    PantryID:
-      name: pantryID
-      in: path
-      required: true
-      description: The unique pantry identifier returned from create.
-      schema:
-        type: string
-        format: uuid
   schemas:
     BasketSummary:
       type: object
@@ -150,3 +141,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BasketSummary'
+  parameters:
+    PantryID:
+      name: pantryID
+      in: path
+      required: true
+      description: The unique pantry identifier returned from create.
+      schema:
+        type: string
+        format: uuid
